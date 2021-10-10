@@ -20,7 +20,14 @@ class _HomepageState extends State<Homepage> {
       builder: (context, Widget) {
         var _size = MediaQuery.of(context).size;
         var _data = context.watch<HomePageVM>();
-        return Scaffold(
+        return _data.isLoading ?
+            Center(
+              child: CircularProgressIndicator(
+                backgroundColor: Color(0xff7E8197),
+                color: Color(0xff01D09A),
+              ),
+            )
+            : Scaffold(
           key: _globalKey,
           drawer: Theme(
             data: Theme.of(context).copyWith(
@@ -190,7 +197,10 @@ class _HomepageState extends State<Homepage> {
                         child: Row(
                           children: [
                             Padding(
-                              padding: EdgeInsets.only(left: MediaQuery.of(context).size.height),
+                              padding: EdgeInsets.only(left: MediaQuery.of(context).size.height*0.05),
+                              child: CircularProgressIndicator(
+                                value: _data.getanalalysisPercent/100,
+                              ),
                               
                             ),
                           ],
