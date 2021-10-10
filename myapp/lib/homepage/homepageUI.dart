@@ -21,13 +21,13 @@ class _HomepageState extends State<Homepage> {
         var _size = MediaQuery.of(context).size;
         var _data = context.watch<HomePageVM>();
         return Scaffold(
-          drawer: new Drawer(),
+          drawer: AppDrawer(),
           backgroundColor: HexColor('#ff31344A'),
           body: Column(
             children: [
               Padding(
                 padding: EdgeInsets.only(
-                    top: _size.height * 0.03, left: _size.width * 0.05),
+                    top: _size.height * 0.04, left: _size.width * 0.05),
                 child: SizedBox(
                   height: _size.height * 0.045,
                   child: Row(
@@ -64,7 +64,9 @@ class _HomepageState extends State<Homepage> {
                       children: [
                         SizedBox(width: _size.width * 0.025),
                         InkWell(
-                          onTap: ()=> Scaffold.of(context).openDrawer(),
+                          onTap: (){
+                            return  Scaffold.of(context).openDrawer();
+                          },
                           child: Icon(
                             Icons.menu,
                             size: 32,
@@ -113,46 +115,84 @@ class _HomepageState extends State<Homepage> {
                     top: _size.height * 0.03,
                     left: _size.width * 0.05,
                     right: _size.width * 0.05),
-                child: SizedBox(
-                  height: _size.height * 0.2,
-                  child: Container(
-                    decoration: BoxDecoration(
-                        gradient : LinearGradient(
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
-                          colors: [
-                             Color(0xff01D09A).withOpacity(0.82),
-                             Color(0xff01D09A).withOpacity(0.30)
-                          ],
-                        ),
-                        borderRadius: BorderRadius.circular(25)),
-                    child: Center(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.only(),
-                            child: Text(
-                              'Balance',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 20
+                child: InkWell(
+                  onTap: (){
+
+                  },
+                  child: SizedBox(
+                    height: _size.height * 0.2,
+                    child: Container(
+                      decoration: BoxDecoration(
+                          gradient : LinearGradient(
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                            colors: [
+                               Color(0xff01D09A).withOpacity(0.82),
+                               Color(0xff01D09A).withOpacity(0.30)
+                            ],
+                          ),
+                          borderRadius: BorderRadius.circular(25)),
+                      child: Center(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.only(right: _size.height*0.1),
+                              child: Text(
+                                'Balance',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 20
+                                ),
                               ),
                             ),
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                             BalanceClass('₹',24),
-                             BalanceClass(_data.getBalanceInRupee.toString(),24),
-                            ],
-                          )
-                        ],
-                      ),
-                    )
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                               Padding(
+                                 padding: EdgeInsets.only(right : _size.width*0.01),
+                                 child: BalanceClass('₹',36),
+                               ),
+                               BalanceClass(_data.getBalanceInRupee.toString(),36),
+                               BalanceClass('.',36),
+                               Padding(
+                                 padding:  EdgeInsets.only(top: MediaQuery.of(context).size.height*0.01),
+                                 child: BalanceClass(_data.getBalanceInPaise.toString(),22),
+                               ),
+                              ],
+                            )
+                          ],
+                        ),
+                      )
+                    ),
                   ),
                 ),
-              )
+              ),
+              Padding(
+                padding: EdgeInsets.only(
+                    top: _size.height * 0.03,
+                    left: _size.width * 0.05,
+                    right: _size.width * 0.05),
+                child: InkWell(
+                  onTap: (){
+
+                  },
+                  child: SizedBox(
+                    height: _size.height * 0.1,
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(25)),
+                      child: Container(
+                        child: Row(
+
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+
             ],
           ),
         );
@@ -173,7 +213,8 @@ class BalanceClass extends StatelessWidget {
       text,
       style: TextStyle(
         color: Colors.white,
-        fontSize: size
+        fontSize: size,
+        fontWeight: FontWeight.w900
       ),
     );
   }
