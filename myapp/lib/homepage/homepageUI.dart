@@ -185,11 +185,15 @@ class _HomepageState extends State<Homepage> {
                     height: _size.height * 0.1,
                     child: Container(
                       decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(25)),
+                          color: Colors.white,),
                       child: Container(
                         child: Row(
-
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.only(left: MediaQuery.of(context).size.height),
+                              
+                            ),
+                          ],
                         ),
                       ),
                     ),
