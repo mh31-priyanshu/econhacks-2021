@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:myapp/Transactions/transactionsUI.dart';
 import 'package:myapp/homepage/appdrawer.dart';
 import 'package:provider/provider.dart';
 import 'homepageVM.dart';
@@ -88,7 +89,7 @@ class _HomepageState extends State<Homepage> {
                                 quarterTurns: 1,
                                 child: Icon(
                             Icons.local_offer_outlined,
-                                  size: 48,
+                                  size: 30,
                                   color: Colors.black,
                             ),
                            ),
@@ -97,7 +98,7 @@ class _HomepageState extends State<Homepage> {
                              child: Text(
                                'Offers',
                                style: TextStyle(
-                                 fontSize: 36,
+                                 fontSize: 30,
                                  color: Colors.black,
                                  fontWeight: FontWeight.w400
                                ),
@@ -224,7 +225,9 @@ class _HomepageState extends State<Homepage> {
                     right: _size.width * 0.05),
                 child: InkWell(
                   onTap: (){
-
+                    Navigator.push(context,MaterialPageRoute(
+                      builder: (context) => Transactions(widget.email),
+                    ));
                   },
                   child: SizedBox(
                     height: _size.height * 0.2,
