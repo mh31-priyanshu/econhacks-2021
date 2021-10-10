@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "1048221053082",
+    "project_id": "econhacks2021",
+    "storage_bucket": "econhacks2021.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1048221053082:android:e730cdfcd7483076362f23",
+        "android_client_info": {
+          "package_name": "com.android.application"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1048221053082-f32ekvc53hi4fniv8npafco1o33m2o9r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDEv6x-WTM4aolEppj2KP40p4lmEzuR3Pw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1048221053082-f32ekvc53hi4fniv8npafco1o33m2o9r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1048221053082:android:fe0d852f28add3c8362f23",
+        "android_client_info": {
+          "package_name": "com.example.myapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1048221053082-f32ekvc53hi4fniv8npafco1o33m2o9r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDEv6x-WTM4aolEppj2KP40p4lmEzuR3Pw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1048221053082-f32ekvc53hi4fniv8npafco1o33m2o9r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
