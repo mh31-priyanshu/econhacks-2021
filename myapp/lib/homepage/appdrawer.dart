@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:myapp/homepage/homepageVM.dart';
+import 'package:myapp/profile/editprofle.dart';
 import 'package:provider/provider.dart';
 
 class AppDrawer extends StatefulWidget {
@@ -76,11 +77,16 @@ class _AppDrawerState extends State<AppDrawer> {
                             size: 32,
                           ),
                           SizedBox(width: 25,),
-                          Text(
-                            "Profile",
-                            style: TextStyle(
-                              fontSize: 17,
-                              fontWeight: FontWeight.w600
+                          GestureDetector(
+                            onTap: () {
+                          Navigator.push(context,MaterialPageRoute(builder: (context)=>EditProfile()));
+                        },
+                            child: Text(
+                              "Profile",
+                              style: TextStyle(
+                                fontSize: 17,
+                                fontWeight: FontWeight.w600
+                              ),
                             ),
                           )
                         ],
