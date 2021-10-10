@@ -83,7 +83,7 @@ class HomePageVM extends ChangeNotifier {
       print(404);
 
       try {
-        _name = value.data()!['name'];
+        _url = value.data()!['url'];
         _haspfp = true;
       } catch (e) {
         print(e);

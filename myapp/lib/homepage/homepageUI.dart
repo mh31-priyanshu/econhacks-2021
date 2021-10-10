@@ -197,9 +197,11 @@ class _HomepageState extends State<Homepage> {
                         child: Row(
                           children: [
                             Padding(
-                              padding: EdgeInsets.only(left: MediaQuery.of(context).size.height*0.05),
+                              padding: EdgeInsets.only(left: MediaQuery.of(context).size.height*0.02),
                               child: CircularProgressIndicator(
                                 value: _data.getanalalysisPercent/100,
+                                color: Color(0xff01D09A),
+                                backgroundColor: Color(0xff7E8197),
                               ),
                               
                             ),
