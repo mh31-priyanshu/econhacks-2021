@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:myapp/Payment/Payment.dart';
 import 'package:myapp/Transactions/transactionsUI.dart';
 import 'package:myapp/homepage/appdrawer.dart';
 import 'package:provider/provider.dart';
@@ -43,7 +44,11 @@ class _HomepageState extends State<Homepage> {
               height: _size.width*0.2,
               child: FittedBox(
                 child: FloatingActionButton(
-                  onPressed: (){},
+                  onPressed: (){
+                    Navigator.push(context,MaterialPageRoute(
+                      builder: (context) => Payment(widget.email)
+                    ));
+                  },
                   backgroundColor: Color(0xff01D09A),
                   child: Center(
                     child: Image(
