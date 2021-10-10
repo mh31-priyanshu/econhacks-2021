@@ -7,12 +7,12 @@ import 'homepageVM.dart';
 class Homepage extends StatefulWidget {
   String email;
   Homepage(this.email);
-
   @override
   _HomepageState createState() => _HomepageState();
 }
 
 class _HomepageState extends State<Homepage> {
+  GlobalKey<ScaffoldState> _globalKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
@@ -21,7 +21,13 @@ class _HomepageState extends State<Homepage> {
         var _size = MediaQuery.of(context).size;
         var _data = context.watch<HomePageVM>();
         return Scaffold(
-          drawer: new Drawer(),
+          key: _globalKey,
+          drawer: Theme(
+            data: Theme.of(context).copyWith(
+                 canvasColor: Color(0xff32354A),
+              ),
+            child: AppDrawer(),
+          ),
           backgroundColor: HexColor('#ff31344A'),
           body: Column(
             children: [
@@ -64,7 +70,9 @@ class _HomepageState extends State<Homepage> {
                       children: [
                         SizedBox(width: _size.width * 0.025),
                         InkWell(
-                          onTap: ()=> Scaffold.of(context).openDrawer(),
+                          onTap: (){
+                            _globalKey.currentState!.openDrawer();
+                          },
                           child: Icon(
                             Icons.menu,
                             size: 32,
