@@ -76,7 +76,7 @@ class _LoginPageState extends State<LoginPage> {
                               fontSize: 22)),
                     ),
                     const SizedBox(
-                      height: 20,
+                      height: 30,
                     ),
                     Container(
                       margin: EdgeInsets.fromLTRB(7, 0, 0, 0),
@@ -137,13 +137,60 @@ class _LoginPageState extends State<LoginPage> {
                         style: TextStyle(),
                       ),
                     ),
-                    SizedBox(height:30),
+                    SizedBox(height: 10,),
                     Container(
+                      width: width*0.65-0.14,
+                      margin: EdgeInsets.fromLTRB(7, 0, 0, 0),
+                      child: const Text(
+                        "Forgot password?",
+                        textAlign: TextAlign.end,
+                        style:
+                            TextStyle(color: Color(0xffA8A8A8), fontSize: 12),
+                      ),
+                    ),
+                    SizedBox(height:25),
+                    Container(
+                      decoration: BoxDecoration(
+                          color: Color(0xff01D09A),
+                          borderRadius: BorderRadius.circular(50),
+                      ),
+                      padding: EdgeInsets.all(10),
+                      width: width*0.65-0.14,
                       child: Text("Sign In",
                       textAlign: TextAlign.center,
                         style:TextStyle(
                           
                         )
+                      ),
+                    ),
+                    SizedBox(height:35),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                          height: 1,
+                          width:width*0.20,
+                          color: Color(0xffBBBCCD),
+                        ),
+                        Text(
+                          "or",
+                          style: TextStyle(
+                            color:Color(0xffA8A8A8),
+
+                          ),
+                        ),
+                        Container(
+                          height: 1,
+                          width:width*0.20,
+                          color: Color(0xffBBBCCD),
+                        )
+                      ],
+                    ),
+                    Text(
+                      "Don't have an account?",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize:16
                       ),
                     )
                   ],
