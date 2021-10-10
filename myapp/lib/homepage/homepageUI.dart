@@ -192,18 +192,64 @@ class _HomepageState extends State<Homepage> {
                     height: _size.height * 0.1,
                     child: Container(
                       decoration: BoxDecoration(
-                          color: Colors.white,),
+                          // color: Colors.white,
+                      ),
                       child: Container(
                         child: Row(
                           children: [
                             Padding(
                               padding: EdgeInsets.only(left: MediaQuery.of(context).size.height*0.02),
-                              child: CircularProgressIndicator(
-                                value: _data.getanalalysisPercent/100,
-                                color: Color(0xff01D09A),
-                                backgroundColor: Color(0xff7E8197),
+                              child: SizedBox(
+                                height: MediaQuery.of(context).size.height*0.07,
+                                width: MediaQuery.of(context).size.height*0.07,
+                                child: CircularProgressIndicator(
+                                  strokeWidth: 8.0,
+                                  value: _data.getanalalysisPercent/100,
+                                  color: Color(0xff01D09A),
+                                  backgroundColor: Color(0xff7E8197),
+                                ),
                               ),
-                              
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(left: MediaQuery.of(context).size.width*0.04),
+                              child: BalanceClass("${_data.getanalalysisPercent.toInt()}%" ,28),
+                            ),
+
+                            Padding(
+                              padding: EdgeInsets.only(left: _size.height*0.05),
+                              child: Column(
+                                children: [
+                                  BalanceClass('Total Expenditure', 18),
+                                  Padding(
+                                    padding: EdgeInsets.only(top: _size.height*0.01),
+                                    child: Row(
+                                      children: [
+                                        Text(
+                                          _data.getMoneySpent.toInt().toString(),
+                                          style: TextStyle(
+                                              color: Color(0xff7E8197),
+                                              fontSize: 26
+                                          ),
+                                        ),
+                                        Text(
+                                          '/',
+                                          style: TextStyle(
+                                              color: Color(0xff7E8197),
+                                              fontSize: 26
+                                          ),
+                                        ),
+                                        Text(
+                                          _data.getSpentLimit.toInt().toString(),
+                                          style: TextStyle(
+                                              color: Color(0xff7E8197),
+                                              fontSize: 26
+                                          ),
+                                        ),
+                                      ],
+                                    )
+                                  )
+                                ],
+                              ),
                             ),
                           ],
                         ),
