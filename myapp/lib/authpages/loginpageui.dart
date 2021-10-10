@@ -159,7 +159,8 @@ class _LoginPageState extends State<LoginPage> {
                       child: Text("Sign In",
                       textAlign: TextAlign.center,
                         style:TextStyle(
-                          
+                          color: Color(0xffffffff),
+                          fontWeight: FontWeight.bold
                         )
                       ),
                     ),
@@ -186,11 +187,30 @@ class _LoginPageState extends State<LoginPage> {
                         )
                       ],
                     ),
-                    Text(
-                      "Don't have an account?",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize:16
+                    SizedBox(height: 20,),
+                    Container(
+                      width: width*0.65-0.14,
+                      child: Text(
+                        "Don't have an account?",
+                        textAlign :TextAlign.center,
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize:14,
+                          color: Color(0xffA8A8A8)
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 10,),
+                    Container(
+                      width: width*0.65-0.14,
+                      child: Text(
+                        "Register",
+                        textAlign :TextAlign.center,
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize:14,
+                          color: Color(0xffffffff)
+                        ),
                       ),
                     )
                   ],
