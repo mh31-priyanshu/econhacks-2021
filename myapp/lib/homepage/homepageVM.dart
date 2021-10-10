@@ -6,8 +6,8 @@ class HomePageVM extends ChangeNotifier {
   String _url = "";
   bool _haspfp = false;
   bool _loading = false;
-  double _balanceInRupee = 0;
-  double _balanceInPaise = 0;
+  int _balanceInRupee = 0;
+  int _balanceInPaise = 0;
 
 
   HomePageVM(this._email) {
@@ -28,6 +28,15 @@ class HomePageVM extends ChangeNotifier {
         .doc(this._email)
         .get()
         .then((value) {
+      try{
+        var temp = value.data()!['balance'];
+        _balanceInRupee = temp.toInt();
+        print(404);
+        _balanceInPaise = ((temp - _balanceInRupee) * 100).toInt();
+      }catch(e){
+        print(e);
+      }
+
       try {
         _url = value.data()!['url'];
         _haspfp = true;
@@ -35,13 +44,6 @@ class HomePageVM extends ChangeNotifier {
         print(e);
         _haspfp = false;
       }
-
-      try{
-        double temp = value.data()!['balance'];
-      }catch(e){
-        print(e);
-      }
-
 
     });
     print("_url : $_url");
