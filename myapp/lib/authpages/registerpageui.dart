@@ -1,16 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:glassmorphism/glassmorphism.dart';
-import 'package:myapp/authpages/registerpageui.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+import 'loginpageui.dart';
+
+class RegisterPage extends StatefulWidget {
+  const RegisterPage({Key? key}) : super(key: key);
 
   @override
-  _LoginPageState createState() => _LoginPageState();
+  _RegisterPageState createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -69,15 +70,15 @@ class _LoginPageState extends State<LoginPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
-                      margin: EdgeInsets.fromLTRB(7, 60, 0, 0),
-                      child: const Text("Login",
+                      margin: EdgeInsets.fromLTRB(7, 40, 0, 0),
+                      child: const Text("Register",
                           style: TextStyle(
                               color: Color(0xffffffff),
                               fontWeight: FontWeight.bold,
                               fontSize: 22)),
                     ),
                     const SizedBox(
-                      height: 30,
+                      height: 20,
                     ),
                     Container(
                       margin: EdgeInsets.fromLTRB(7, 0, 0, 0),
@@ -108,12 +109,12 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                     const SizedBox(
-                      height: 20,
+                      height: 10,
                     ),
                     Container(
                       margin: EdgeInsets.fromLTRB(7, 0, 0, 0),
                       child: const Text(
-                        "Password",
+                        "Username",
                         style:
                             TextStyle(color: Color(0xffA8A8A8), fontSize: 12),
                       ),
@@ -138,18 +139,68 @@ class _LoginPageState extends State<LoginPage> {
                         style: TextStyle(),
                       ),
                     ),
-                    SizedBox(height: 10,),
+                    const SizedBox(
+                      height: 10,
+                    ),
                     Container(
-                      width: width*0.65-0.14,
                       margin: EdgeInsets.fromLTRB(7, 0, 0, 0),
                       child: const Text(
-                        "Forgot password?",
-                        textAlign: TextAlign.end,
+                        "Password",
+                        style:TextStyle(color: Color(0xffA8A8A8), fontSize: 12),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 3,
+                    ),
+                    SizedBox(
+                      height: 35,
+                      child: TextField(
+                        mouseCursor: MouseCursor.uncontrolled,
+                        cursorHeight: 20,
+                        decoration: InputDecoration(
+                          contentPadding: EdgeInsets.fromLTRB(15, 0, 0, 0),
+                          disabledBorder: InputBorder.none,
+                          fillColor: Color(0xffBBBCCD),
+                          filled: true,
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(50),
+                          ),
+                        ),
+                        style: TextStyle(),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Container(
+                      margin: EdgeInsets.fromLTRB(7, 0, 0, 0),
+                      child: const Text(
+                        "Confirm Password",
                         style:
                             TextStyle(color: Color(0xffA8A8A8), fontSize: 12),
                       ),
                     ),
-                    SizedBox(height:25),
+                    SizedBox(
+                      height: 3,
+                    ),
+                    SizedBox(
+                      height: 35,
+                      child: TextField(
+                        mouseCursor: MouseCursor.uncontrolled,
+                        cursorHeight: 20,
+                        decoration: InputDecoration(
+                          contentPadding: EdgeInsets.fromLTRB(15, 0, 0, 0),
+                          disabledBorder: InputBorder.none,
+                          fillColor: Color(0xffBBBCCD),
+                          filled: true,
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(50),
+                          ),
+                        ),
+                        style: TextStyle(),
+                      ),
+                    ),
+                    SizedBox(height: 25,),
                     Container(
                       decoration: BoxDecoration(
                           color: Color(0xff01D09A),
@@ -157,7 +208,7 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       padding: EdgeInsets.all(10),
                       width: width*0.65-0.14,
-                      child: Text("Sign In",
+                      child: Text("Sign Up",
                       textAlign: TextAlign.center,
                         style:TextStyle(
                           color: Color(0xffffffff),
@@ -165,7 +216,7 @@ class _LoginPageState extends State<LoginPage> {
                         )
                       ),
                     ),
-                    SizedBox(height:35),
+                    SizedBox(height:20),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -188,7 +239,7 @@ class _LoginPageState extends State<LoginPage> {
                         )
                       ],
                     ),
-                    SizedBox(height: 20,),
+                    SizedBox(height: 12,),
                     Container(
                       width: width*0.65-0.14,
                       child: Text(
@@ -206,10 +257,10 @@ class _LoginPageState extends State<LoginPage> {
                       width: width*0.65-0.14,
                       child: GestureDetector(
                         onTap: () {
-                          Navigator.pushReplacement(context,MaterialPageRoute(builder: (context)=>const RegisterPage()));
+                          Navigator.pushReplacement(context,MaterialPageRoute(builder: (context)=>const LoginPage()));
                         },
                         child: Text(
-                          "Register",
+                          "Login",
                           textAlign :TextAlign.center,
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
