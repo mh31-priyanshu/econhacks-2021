@@ -136,9 +136,16 @@ class _HomepageState extends State<Homepage> {
                               'Balance',
                               style: TextStyle(
                                 color: Colors.white,
-                                fontSize: 26
+                                fontSize: 20
                               ),
                             ),
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                             BalanceClass('₹',24),
+                             BalanceClass(_data.getBalanceInRupee.toString(),24),
+                            ],
                           )
                         ],
                       ),
@@ -150,6 +157,24 @@ class _HomepageState extends State<Homepage> {
           ),
         );
       },
+    );
+  }
+}
+
+
+class BalanceClass extends StatelessWidget {
+  String text = " ";
+  double size = 0;
+  BalanceClass(this.text,this.size);
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      text,
+      style: TextStyle(
+        color: Colors.white,
+        fontSize: size
+      ),
     );
   }
 }

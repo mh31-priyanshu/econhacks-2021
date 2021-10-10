@@ -6,11 +6,17 @@ class HomePageVM extends ChangeNotifier {
   String _url = "";
   bool _haspfp = false;
   bool _loading = false;
+  double _balanceInRupee = 0;
+  double _balanceInPaise = 0;
+
+
   HomePageVM(this._email) {
-    _loading = true;
+    bool _loading = true;
     getData();
   }
 
+  get getBalanceInRupee => _balanceInRupee;
+  get getBalanceInPaise => _balanceInPaise;
   get isLoading => _loading;
   get hasPfp => _haspfp;
   get getUrl => _url;
@@ -29,6 +35,14 @@ class HomePageVM extends ChangeNotifier {
         print(e);
         _haspfp = false;
       }
+
+      try{
+        double temp = value.data()!['balance'];
+      }catch(e){
+        print(e);
+      }
+
+
     });
     print("_url : $_url");
     print("has url : $_haspfp");
