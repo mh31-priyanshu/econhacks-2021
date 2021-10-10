@@ -11,6 +11,11 @@ class HomePageVM extends ChangeNotifier {
   double _spend_limit = 0.0;
   double _money_spent = 0.0;
   double _analysis_percent = 0;
+  String _username = " ";
+  String _name = " ";
+  String _upiID = " ";
+  String _gender = " ";
+  int _age = 0;
 
 
   HomePageVM(this._email) {
@@ -26,6 +31,10 @@ class HomePageVM extends ChangeNotifier {
   get getSpentLimit => _spend_limit;
   get getMoneySpent => _money_spent;
   get getanalalysisPercent => _analysis_percent;
+  get getUserName => _username;
+  get getName => _name;
+  get getUpiId => _upiID;
+  get getAge => _age;
 
   getData() async {
 
@@ -74,13 +83,47 @@ class HomePageVM extends ChangeNotifier {
       print(404);
 
       try {
-        _url = value.data()!['url'];
+        _name = value.data()!['name'];
         _haspfp = true;
       } catch (e) {
         print(e);
         _haspfp = false;
       }
       print(405);
+
+      try {
+        _name = value.data()!['name'];
+      } catch (e) {
+        print(e);
+      }
+
+      try {
+        _username = value.data()!['username'];
+        _haspfp = true;
+      } catch (e) {
+        print(e);
+        _haspfp = false;
+      }
+
+          try {
+            _upiID = value.data()!['upi_id'];
+            _haspfp = true;
+          } catch (e) {
+            print(e);
+            _haspfp = false;
+          }
+
+      try{
+        _gender = value.data()!['gender'];
+      } catch(e){
+        print(e);
+      }
+
+          try{
+            _age = value.data()!['age'];
+          } catch(e){
+            print(e);
+          }
 
 
     });
