@@ -86,27 +86,25 @@ class _HomepageState extends State<Homepage> {
                               bottom:
                               MediaQuery.of(context).size.height * 0.005),
                           child: Container(
-                            child: Container(
-                              height: MediaQuery.of(context).size.height * 0.06,
-                              width: MediaQuery.of(context).size.height * 0.06,
-                              decoration: BoxDecoration(
-                                // borderRadius: BorderRadius.circular(50.0),
-                                shape: BoxShape.circle,
-                                color: Colors.grey,
+                            height: MediaQuery.of(context).size.height * 0.06,
+                            width: MediaQuery.of(context).size.height * 0.06,
+                            decoration: BoxDecoration(
+                              // borderRadius: BorderRadius.circular(50.0),
+                              shape: BoxShape.circle,
+                              color: Colors.grey,
+                            ),
+                            child: _data.hasPfp
+                                ? CircleAvatar(
+                              radius: 30.0,
+                              backgroundColor: Colors.transparent,
+                              backgroundImage: NetworkImage(
+                                _data.getUrl,
                               ),
-                              child: _data.hasPfp
-                                  ? CircleAvatar(
-                                radius: 30.0,
-                                backgroundColor: Colors.transparent,
-                                backgroundImage: NetworkImage(
-                                  _data.getUrl,
-                                ),
-                              )
-                                  : Center(
-                                child: Icon(
-                                  Icons.person,
-                                  color: Colors.black,
-                                ),
+                            )
+                                : Center(
+                              child: Icon(
+                                Icons.person,
+                                color: Colors.black,
                               ),
                             ),
                           ),
