@@ -139,10 +139,10 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     SizedBox(height:30),
                     Container(
-                      
                       child: Text("Sign In",
+                      textAlign: TextAlign.center,
                         style:TextStyle(
-
+                          
                         )
                       ),
                     )
