@@ -33,5 +33,6 @@ class HomePageVM extends ChangeNotifier {
     print("_url : $_url");
     print("has url : $_haspfp");
     _loading = false;
+    notifyListeners();
   }
 }
