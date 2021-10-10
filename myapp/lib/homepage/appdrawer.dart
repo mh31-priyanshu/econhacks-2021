@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:myapp/authpages/loginpageui.dart';
 import 'package:myapp/homepage/homepageVM.dart';
 import 'package:myapp/profile/editprofle.dart';
 import 'package:provider/provider.dart';
@@ -154,23 +155,28 @@ class _AppDrawerState extends State<AppDrawer> {
                     )
                       ],
                     ),
-                    Container(
-                      child: Row(
-                        children: [
-                          SizedBox(width: 20,),
-                          Icon(
-                            Icons.exit_to_app_rounded,
-                            size: 32,
-                          ),
-                          SizedBox(width: 25,),
-                          Text(
-                            "Sign Out",
-                            style: TextStyle(
-                              fontSize: 17,
-                              fontWeight: FontWeight.w600
+                    SizedBox(
+                      child: GestureDetector(
+                        onTap: (){
+                          Navigator.pushReplacement(context,MaterialPageRoute(builder: (context)=>LoginPage()));
+                        },
+                        child: Row(
+                          children: [
+                            SizedBox(width: 20,),
+                            Icon(
+                              Icons.exit_to_app_rounded,
+                              size: 32,
                             ),
-                          )
-                        ],
+                            SizedBox(width: 25,),
+                            Text(
+                              "Sign Out",
+                              style: TextStyle(
+                                fontSize: 17,
+                                fontWeight: FontWeight.w600
+                              ),
+                            )
+                          ],
+                        ),
                       ),
                     )
                   ],

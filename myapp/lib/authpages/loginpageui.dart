@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:glassmorphism/glassmorphism.dart';
 import 'package:myapp/authpages/registerpageui.dart';
+import 'package:myapp/homepage/homepageUI.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -150,19 +151,25 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                     SizedBox(height:25),
-                    Container(
-                      decoration: BoxDecoration(
-                          color: Color(0xff01D09A),
-                          borderRadius: BorderRadius.circular(50),
-                      ),
-                      padding: EdgeInsets.all(10),
-                      width: width*0.65-0.14,
-                      child: Text("Sign In",
-                      textAlign: TextAlign.center,
-                        style:TextStyle(
-                          color: Color(0xffffffff),
-                          fontWeight: FontWeight.bold
-                        )
+                    GestureDetector(
+                      onTap: (){
+                          Navigator.pushReplacement(context,MaterialPageRoute(builder: (context)=>Homepage('test@gmail.com')));
+
+                      },
+                      child: Container(
+                        decoration: BoxDecoration(
+                            color: Color(0xff01D09A),
+                            borderRadius: BorderRadius.circular(50),
+                        ),
+                        padding: EdgeInsets.all(10),
+                        width: width*0.65-0.14,
+                        child: Text("Sign In",
+                        textAlign: TextAlign.center,
+                          style:TextStyle(
+                            color: Color(0xffffffff),
+                            fontWeight: FontWeight.bold
+                          )
+                        ),
                       ),
                     ),
                     SizedBox(height:35),
