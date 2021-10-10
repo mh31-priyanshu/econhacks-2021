@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:myapp/homepage/appdrawer.dart';
 import 'package:provider/provider.dart';
 import 'homepageVM.dart';
 
@@ -20,6 +21,7 @@ class _HomepageState extends State<Homepage> {
         var _size = MediaQuery.of(context).size;
         var _data = context.watch<HomePageVM>();
         return Scaffold(
+          drawer: new Drawer(),
           backgroundColor: HexColor('#ff31344A'),
           body: Column(
             children: [
@@ -62,9 +64,7 @@ class _HomepageState extends State<Homepage> {
                       children: [
                         SizedBox(width: _size.width * 0.025),
                         InkWell(
-                          onTap: () {
-                            //DASHBOARD
-                          },
+                          onTap: ()=> Scaffold.of(context).openDrawer(),
                           child: Icon(
                             Icons.menu,
                             size: 32,
