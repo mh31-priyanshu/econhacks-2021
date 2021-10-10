@@ -60,43 +60,108 @@ class _HomepageState extends State<Homepage> {
                         borderRadius: BorderRadius.circular(25)),
                     child: Row(
                       children: [
-                        SizedBox(width: _size.width * 0.01),
-                        IconButton(
-                            onPressed: () {},
-                            icon: Icon(
-                              Icons.menu,
-                              size: 32,
-                            )),
+                        SizedBox(width: _size.width * 0.025),
+                        InkWell(
+                          onTap: () {
+                            //DASHBOARD
+                          },
+                          child: Icon(
+                            Icons.menu,
+                            size: 32,
+                          ),
+                        ),
                         Expanded(child: Container()),
                         Padding(
                           padding: EdgeInsets.only(
                               right: MediaQuery.of(context).size.width * 0.0025,
                               top: MediaQuery.of(context).size.height * 0.005,
                               bottom:
-                                  MediaQuery.of(context).size.height * 0.005),
+                              MediaQuery.of(context).size.height * 0.005),
                           child: Container(
-                            child: _data.hasPfp
-                                ? Image(
-                                    image: NetworkImage(
-                                      _data.getUrl,
-                                    ),
-                                  )
-                                : Container(
-                                    height: MediaQuery.of(context).size.height *
-                                        0.06,
-                                    width: MediaQuery.of(context).size.height *
-                                        0.06,
-                                    decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      color: Colors.grey,
-                                    ),
-                                    child: Center(
-                                      child: Icon(
-                                        Icons.person,
-                                        color: Colors.black,
-                                      ),
-                                    ),
-                                  ),
+                            child: Container(
+                              height: MediaQuery.of(context).size.height * 0.06,
+                              width: MediaQuery.of(context).size.height * 0.06,
+                              decoration: BoxDecoration(
+                                // borderRadius: BorderRadius.circular(50.0),
+                                shape: BoxShape.circle,
+                                color: Colors.grey,
+                              ),
+                              child: _data.hasPfp
+                                  ? CircleAvatar(
+                                radius: 30.0,
+                                backgroundColor: Colors.transparent,
+                                backgroundImage: NetworkImage(
+                                  _data.getUrl,
+                                ),
+                              )
+                                  : Center(
+                                child: Icon(
+                                  Icons.person,
+                                  color: Colors.black,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(
+                    top: _size.height * 0.007,
+                    left: _size.width * 0.05,
+                    right: _size.width * 0.05),
+                child: SizedBox(
+                  height: _size.height * 0.060,
+                  child: Container(
+                    decoration: BoxDecoration(
+                        color: HexColor('#ff7E8197'),
+                        borderRadius: BorderRadius.circular(25)),
+                    child: Row(
+                      children: [
+                        SizedBox(width: _size.width * 0.025),
+                        InkWell(
+                          onTap: () {
+                            //DASHBOARD
+                          },
+                          child: Icon(
+                            Icons.menu,
+                            size: 32,
+                          ),
+                        ),
+                        Expanded(child: Container()),
+                        Padding(
+                          padding: EdgeInsets.only(
+                              right: MediaQuery.of(context).size.width * 0.0025,
+                              top: MediaQuery.of(context).size.height * 0.005,
+                              bottom:
+                              MediaQuery.of(context).size.height * 0.005),
+                          child: Container(
+                            child: Container(
+                              height: MediaQuery.of(context).size.height * 0.06,
+                              width: MediaQuery.of(context).size.height * 0.06,
+                              decoration: BoxDecoration(
+                                // borderRadius: BorderRadius.circular(50.0),
+                                shape: BoxShape.circle,
+                                color: Colors.grey,
+                              ),
+                              child: _data.hasPfp
+                                  ? CircleAvatar(
+                                radius: 30.0,
+                                backgroundColor: Colors.transparent,
+                                backgroundImage: NetworkImage(
+                                  _data.getUrl,
+                                ),
+                              )
+                                  : Center(
+                                child: Icon(
+                                  Icons.person,
+                                  color: Colors.black,
+                                ),
+                              ),
+                            ),
                           ),
                         ),
                       ],
