@@ -5,7 +5,7 @@ class HomePageVM extends ChangeNotifier {
   String _email;
   String _url = "";
   bool _haspfp = false;
-  bool _loading = false;
+  bool _loading = true;
   int _balanceInRupee = 0;
   int _balanceInPaise = 0;
   double _spend_limit = 0.0;
@@ -16,6 +16,8 @@ class HomePageVM extends ChangeNotifier {
   String _upiID = " ";
   String _gender = " ";
   int _age = 0;
+  List<dynamic> _recents= [];
+  // List<Map<String,String>> _recentDetails = [{}];
 
 
   HomePageVM(this._email) {
@@ -35,6 +37,8 @@ class HomePageVM extends ChangeNotifier {
   get getName => _name;
   get getUpiId => _upiID;
   get getAge => _age;
+  get getRecents => _recents;
+  // get getRecentsDetails => _recentDetails;
 
   getData() async {
 
@@ -125,11 +129,92 @@ class HomePageVM extends ChangeNotifier {
             print(e);
           }
 
+      try{
+        _recents = value.data()!['recents'];
+        print(10100);
+        print(_recents);
+        print(10101);
+      }catch(e){
+        print(e);
+      }
 
     });
     print("_url : $_url");
     print("has url : $_haspfp");
+      print(_recents);
+    // for(int i = 0;i< _recents.length;i++){
+    //   String tempName = " ";
+    //   String tempUrl  = " ";
+    //   try {
+    //     await firebaseFirestore.collection('accounts').doc(_recents[i])
+    //         .get()
+    //         .then((value) {
+    //       tempName = value.data()!['name'].toString();
+    //       tempUrl = value.data()!['url'].toString();
+    //     });
+    //   }catch(e){print(e);}
+    //
+    //   print(999);
+    //   _recentDetails.add({
+    //     'name' : tempName,
+    //     'url'  : tempUrl,
+    //   });
+    //
+    // }
+    // print(_recentDetails);
     _loading = false;
     notifyListeners();
   }
+
+
+}
+
+
+getRecents(var _recents) async{
+  FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
+  List<Map<String,String>> _recentDetails = [{}];
+  bool isFirst = true;
+  for(int i = 0;i< _recents.length;i++){
+    String tempName = " ";
+    String tempUrl  = " ";
+    Map<String,String> temp = {};
+    try {
+      await firebaseFirestore.collection('accounts').doc(_recents[i])
+          .get()
+          .then((value) {
+        tempName = value.data()!['name'].toString();
+        tempUrl = value.data()!['url'].toString();
+      });
+    }catch(e){print(e);}
+
+    print(999);
+    if(isFirst){
+      temp['name'] = tempName;
+      temp['url'] = tempUrl;
+      _recentDetails[0] = temp;
+      isFirst = false;
+    }else{
+      _recentDetails.add({
+        'name' : tempName,
+        'url'  : tempUrl,
+      });
+    }
+  }
+  _recentDetails.remove(0);
+  print(69);
+  print(_recentDetails);
+  _recentDetails.removeWhere((element)=>element['name'] == null);
+  _recentDetails.removeWhere((element)=>element['url'] == null);
+  for(int i = 0; i<_recentDetails.length;i++){
+    if(
+    _recentDetails[i]['name'] == '' ||
+    _recentDetails[i]['url'] == ''
+    ){
+      _recentDetails.remove(i);
+    }
+
+  }
+  print(69);
+
+  return _recentDetails;
 }
