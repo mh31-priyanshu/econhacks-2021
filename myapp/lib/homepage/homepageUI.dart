@@ -26,7 +26,7 @@ class _HomepageState extends State<Homepage> {
             data: Theme.of(context).copyWith(
                  canvasColor: Color(0xff32354A),
               ),
-            child: AppDrawer(),
+            child: AppDrawer(widget.email),
           ),
           backgroundColor: HexColor('#ff31344A'),
           body: Column(
