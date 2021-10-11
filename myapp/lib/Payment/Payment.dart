@@ -21,6 +21,7 @@ class _PaymentState extends State<Payment> {
         TextEditingController Amount = TextEditingController();
         var _data = context.watch<HomePageVM>();
         var _size = MediaQuery.of(context).size;
+        double balance = _data.getBalanceInRupee + _data.getBalanceInRupee*0.01;
         return Scaffold(
           backgroundColor: Color(0xff31344A),
           appBar: AppBar(
