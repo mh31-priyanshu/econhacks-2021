@@ -7,7 +7,7 @@ import 'package:provider/provider.dart';
 import 'homepageVM.dart';
 
 class Homepage extends StatefulWidget {
-  String email;
+  String email = "test@gmail.com";
   Homepage(this.email);
   @override
   _HomepageState createState() => _HomepageState();
@@ -327,7 +327,7 @@ class _HomepageState extends State<Homepage> {
                                     child: Row(
                                       children: [
                                         Text(
-                                          _data.getMoneySpent.toInt().toString(),
+                                          _dataySpent.toInt().toString(),
                                           style: TextStyle(
                                               color: Color(0xff7E8197),
                                               fontSize: 26
